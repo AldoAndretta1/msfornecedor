@@ -6,4 +6,8 @@ import lombok.Data;
 public class Mscliente {
 
     private Long id;
+    private String name;
+    private String phone;
+    private String email;
+    
 }

@@ -5,5 +5,9 @@ import lombok.Data;
 @Data
 public class MsclienteDTO {
 
-    private Long id;
+	private Long id;
+    private String name;
+    private String phone;
+    private String email;
+    
 }
