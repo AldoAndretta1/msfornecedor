@@ -23,4 +23,11 @@ public class ClientService {
 		return ClientResponse.fromModels(this.clientRepository.findAll());
 	}
 	
+	public ClientResponse findById(Long id) {
+		return ClientResponse.fromModel(this.clientRepository.findById(id).orElse(null));
+	}
+	
+	public List<ClientResponse> findByName(String name) {
+		return ClientResponse.fromModels(this.clientRepository.findByNameContainsIgnoreCase(name));
+	}
 }

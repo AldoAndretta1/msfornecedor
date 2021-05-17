@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,24 @@ public class ClientController {
 	@GetMapping
 	public ResponseEntity<List<ClientResponse>> findAll() {
 		return ResponseEntity.ok(clientService.findAll());
+	}
+	
+	@ApiOperation(value = "Buscar Cliente por id", authorizations = { @Authorization(value = "OAuth2") })
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Chamada realizada com sucesso"),
+			@ApiResponse(code = 401, message = "Acesso não autorizado"),
+			@ApiResponse(code = 500, message = "Erro desconhecido") })
+	@GetMapping("{id}")
+	public ResponseEntity<ClientResponse> findById(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(clientService.findById(id));
+	}
+	
+	@ApiOperation(value = "Buscar Cliente por nome", authorizations = { @Authorization(value = "OAuth2") })
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Chamada realizada com sucesso"),
+			@ApiResponse(code = 401, message = "Acesso não autorizado"),
+			@ApiResponse(code = 500, message = "Erro desconhecido") })
+	@GetMapping("findByName/{name}")
+	public ResponseEntity<List<ClientResponse>> findByName(@PathVariable("name") String name) {
+		return ResponseEntity.ok(clientService.findByName(name));
 	}
 
 	@ApiOperation(value = "Salvar um Cliente", authorizations = { @Authorization(value = "OAuth2") })
