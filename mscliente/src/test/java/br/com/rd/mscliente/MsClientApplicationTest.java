@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MsclienteApplicationTest {
+public class MsClientApplicationTest {
 	@Test
 	public void contextInitialLoads() {
 		Assertions.assertEquals(true,true);
