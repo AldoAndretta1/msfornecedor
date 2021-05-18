@@ -1,8 +1,10 @@
 package br.com.rd.mscliente.domain.dto;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 import br.com.rd.mscliente.infrastructure.persistence.client.Client;
 import lombok.Builder;
@@ -35,8 +37,9 @@ public class ClientResponse implements Serializable {
     			.build();
     }
     
-    public static List<ClientResponse> fromModels(List<Client> clients) {
-    	return clients.stream().map(client -> ClientResponse.fromModel(client))
-    			.collect(Collectors.toList());
+    public static Page<ClientResponse> fromModels(Page<Client> clients) {
+    	return new PageImpl<>(
+    			clients.stream().map(client -> ClientResponse.fromModel(client)).collect(Collectors.toList())
+        );
     }
 }

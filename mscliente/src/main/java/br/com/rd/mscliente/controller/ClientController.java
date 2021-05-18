@@ -1,9 +1,11 @@
 package br.com.rd.mscliente.controller;
 
-import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +26,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/client")
+@RequestMapping("/clients")
 @Api(tags = { "Client" })
 public class ClientController {
 	
@@ -35,8 +37,8 @@ public class ClientController {
 			@ApiResponse(code = 401, message = "Acesso não autorizado"),
 			@ApiResponse(code = 500, message = "Erro desconhecido") })
 	@GetMapping
-	public ResponseEntity<List<ClientResponse>> findAll() {
-		return ResponseEntity.ok(clientService.findAll());
+	public ResponseEntity<Page<ClientResponse>> findAll(@PageableDefault(size=50) Pageable pageable) {
+		return ResponseEntity.ok(clientService.findAll(pageable));
 	}
 	
 	@ApiOperation(value = "Buscar Cliente por id", authorizations = { @Authorization(value = "OAuth2") })
@@ -48,15 +50,6 @@ public class ClientController {
 		return ResponseEntity.ok(clientService.findById(id));
 	}
 	
-	@ApiOperation(value = "Buscar Cliente por nome", authorizations = { @Authorization(value = "OAuth2") })
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Chamada realizada com sucesso"),
-			@ApiResponse(code = 401, message = "Acesso não autorizado"),
-			@ApiResponse(code = 500, message = "Erro desconhecido") })
-	@GetMapping("findByName/{name}")
-	public ResponseEntity<List<ClientResponse>> findByName(@PathVariable("name") String name) {
-		return ResponseEntity.ok(clientService.findByName(name));
-	}
-
 	@ApiOperation(value = "Salvar um Cliente", authorizations = { @Authorization(value = "OAuth2") })
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Chamada realizada com sucesso"),
 			@ApiResponse(code = 401, message = "Acesso não autorizado"),
