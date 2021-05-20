@@ -60,7 +60,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 				.host(kongHost)
 				.consumes(Set.of(MediaType.APPLICATION_JSON_VALUE))
 				.produces(Set.of(MediaType.APPLICATION_JSON_VALUE))
-				.protocols(Set.of("https"))
+				.protocols(Set.of("http"))
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("br.com.rd.mscliente.controller"))
 				.paths(PathSelectors.any()).build()
