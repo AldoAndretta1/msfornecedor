@@ -9,7 +9,6 @@ import br.com.rd.mscliente.infrastructure.persistence.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 
 @Service
 @RequiredArgsConstructor
