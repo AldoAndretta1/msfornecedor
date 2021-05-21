@@ -1,7 +1,6 @@
 package br.com.rd.mscliente.controller;
 
 import br.com.rd.mscliente.domain.dto.ProductResponse;
-import br.com.rd.mscliente.infrastructure.persistence.client.Product;
 import br.com.rd.mscliente.service.ProductService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
