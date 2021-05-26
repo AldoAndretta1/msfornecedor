@@ -5,8 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 import java.math.BigDecimal;
+import java.util.stream.Collectors;
 
 @Data
 @Getter
@@ -25,4 +28,11 @@ public class ProductResponse {
                 .price(product.getPrice())
                 .build();
     }
+
+    public static Page<ProductResponse> fromModels(Page<Product> productPage) {
+        return new PageImpl<>(
+                productPage.stream().map(product -> ProductResponse.fromModel(product)).collect(Collectors.toList())
+        );
+    }
+
 }
