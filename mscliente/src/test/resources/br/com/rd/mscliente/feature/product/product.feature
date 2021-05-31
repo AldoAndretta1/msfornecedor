@@ -8,7 +8,7 @@ Feature: CRUD simples product
 
     #Buscar um produto
     Scenario: Buscar o produto por id
-        Given eu tenho o id de um produto
+        Given tenho id do produto
         When busco um produto
         Then retorna um produto
 
@@ -35,6 +35,6 @@ Feature: CRUD simples product
         Then produto excluido
 
     Scenario: Excluir um produto inexistente
-        Given tenho id do produto
-        When excluo um produto inexistente
+        Given tenho id do produto inexistente
+        When excluo um produto
         Then produto nao excluido
