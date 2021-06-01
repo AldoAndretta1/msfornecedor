@@ -1,16 +1,14 @@
-package br.com.rd.mscliente.service;
+package br.com.rd.msproduct.service;
 
-
-import br.com.rd.mscliente.domain.dto.ProductRequest;
-import br.com.rd.mscliente.domain.dto.ProductResponse;
-import br.com.rd.mscliente.exception.ResourceNotFoundException;
-import br.com.rd.mscliente.infrastructure.persistence.product.Product;
-import br.com.rd.mscliente.infrastructure.persistence.product.ProductRepository;
+import br.com.rd.msproduct.domain.dto.ProductRequest;
+import br.com.rd.msproduct.domain.dto.ProductResponse;
+import br.com.rd.msproduct.exception.ResourceNotFoundException;
+import br.com.rd.msproduct.infrastructure.persistence.product.Product;
+import br.com.rd.msproduct.infrastructure.persistence.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 
 @Service
 @RequiredArgsConstructor

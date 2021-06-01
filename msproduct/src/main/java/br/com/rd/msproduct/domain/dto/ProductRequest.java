@@ -1,7 +1,6 @@
-package br.com.rd.mscliente.domain.dto;
+package br.com.rd.msproduct.domain.dto;
 
-import br.com.rd.mscliente.infrastructure.persistence.product.Product;
-
+import br.com.rd.msproduct.infrastructure.persistence.product.Product;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;

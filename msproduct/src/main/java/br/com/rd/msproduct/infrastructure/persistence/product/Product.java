@@ -1,6 +1,6 @@
-package br.com.rd.mscliente.infrastructure.persistence.product;
+package br.com.rd.msproduct.infrastructure.persistence.product;
 
-import br.com.rd.mscliente.domain.dto.ProductRequest;
+import br.com.rd.msproduct.domain.dto.ProductRequest;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -29,8 +29,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
-public class Product{
-
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,5 +41,4 @@ public class Product{
     @Column
     @NotNull
     private BigDecimal price;
-
 }

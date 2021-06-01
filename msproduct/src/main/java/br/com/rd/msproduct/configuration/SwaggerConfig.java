@@ -67,14 +67,14 @@ public class SwaggerConfig implements WebMvcConfigurer {
 				.pathMapping("/")
 				.securitySchemes(Collections.singletonList(oauth()))
 				.useDefaultResponseMessages(false)
-				.tags(new Tag("Msproduct", "Description of Msproduct"))
+				.tags(new Tag("Product", "Description of Product"))
 				.apiInfo(apiInfo());
 
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Msproduct API Rest")
-				.description("Documentação da API Msproduct")
+		return new ApiInfoBuilder().title("Product API Rest")
+				.description("Documentação da API Product")
 				.version("1.0")
 				.contact(new Contact("Developer", null, email))
 				.build();
