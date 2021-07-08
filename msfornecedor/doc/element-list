@@ -1,0 +1,8 @@
+br.com.rd.msfornecedor
+br.com.rd.msfornecedor.configuration
+br.com.rd.msfornecedor.controller
+br.com.rd.msfornecedor.domain.dto
+br.com.rd.msfornecedor.exception
+br.com.rd.msfornecedor.infrastructure.persistence
+br.com.rd.msfornecedor.service
+br.com.rd.msfornecedor.util
